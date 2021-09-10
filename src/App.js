@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import './App.css'
+import Alert from './components/Alert'
+import About from './components/About'
+import Navbar from './components/Navbar'
+import TextForm from './components/TextForm'
 
 function App() {
+  const [mode, setMode] = useState('light')
+  const [alert, setAlert] = useState(null)
+
+  const showAlert = (message, type) => {
+    setAlert({
+      message,
+      type,
+    })
+    setTimeout(() => {
+      setAlert(null)
+    }, 2000)
+  }
+
+  const toggleMode = () => {
+    if (mode === 'light') {
+      setMode('dark')
+      document.body.style.backgroundColor = '#121028'
+      showAlert('Dark Mode has been successfully enabled', 'success')
+      document.title = 'TextUtils - Dark'
+    } else {
+      setMode('light')
+      document.body.style.backgroundColor = '#fff'
+      showAlert('Light Mode has been successfully enabled', 'success')
+      document.title = 'TextUtils - Light'
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Router>
+        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Switch>
+            <Route exact path="/about">
+              <About mode={mode} showAlert={showAlert} />
+            </Route>
+
+            <Route exact path="/">
+              <TextForm
+                heading="Enter the text to analyze below"
+                mode={mode}
+                showAlert={showAlert}
+              />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </>
+  )
 }
 
-export default App;
+export default App
