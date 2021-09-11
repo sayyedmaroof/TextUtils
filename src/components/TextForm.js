@@ -3,6 +3,12 @@ import { useState } from 'react'
 const TextForm = props => {
   const [text, setText] = useState('')
 
+  const minTommss = minutes => {
+    const min = Math.floor(Math.abs(minutes))
+    const sec = Math.floor((Math.abs(minutes) * 60) % 60)
+    return (min < 10 ? '0' : '') + min + ':' + (sec < 10 ? '0' : '') + sec
+  }
+
   const upperCaseHandler = () => {
     let newText = text.toUpperCase()
     setText(newText)
@@ -114,7 +120,10 @@ const TextForm = props => {
             : text.split(' ').length}{' '}
           words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(' ').length} minutes to read</p>
+        <p>
+          <strong>{minTommss(0.008 * text.split(' ').length)}</strong> minutes
+          to read
+        </p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : 'Enter someting to preview it here'}</p>
       </div>
