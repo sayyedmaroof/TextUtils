@@ -75,32 +75,32 @@ const TextForm = props => {
             value={text}></textarea>
         </div>
         <button
-          className="btn btn-secondary text-light my-3 mx-2"
+          className="btn btn-secondary text-light my-2 mx-2"
           onClick={upperCaseHandler}>
           Convert To Uppercase
         </button>
         <button
-          className="btn btn-secondary text-light my-3 mx-2"
+          className="btn btn-secondary text-light my-2 mx-2"
           onClick={lowerCaseHandler}>
           Convert To LowerCase
         </button>
         <button
-          className="btn btn-secondary text-light my-3 mx-2"
+          className="btn btn-secondary text-light my-2 mx-2"
           onClick={copyTextHandler}>
           Copy Text
         </button>
         <button
-          className="btn btn-secondary text-light my-3 mx-2"
+          className="btn btn-secondary text-light my-2 mx-2"
           onClick={clearTextHandler}>
           Clear Text
         </button>
         <button
-          className="btn btn-secondary text-light my-3 mx-2"
+          className="btn btn-secondary text-light my-2 mx-2"
           onClick={capitalizeHadler}>
           Capitalize Text
         </button>
         <button
-          className="btn btn-secondary text-light my-3 mx-2"
+          className="btn btn-secondary text-light my-2 mx-2"
           onClick={extraSpacesHandler}>
           Remove Extra Spaces
         </button>
@@ -112,13 +112,8 @@ const TextForm = props => {
         }}>
         <h2>Your text summary</h2>
         <p>
-          Your text has{' '}
-          {text === ''
-            ? 0
-            : text.endsWith(' ')
-            ? text.split(' ').length - 1
-            : text.split(' ').length}{' '}
-          words and {text.length} characters
+          {text.split(' ').filter(element => element.length !== 0).length} words
+          and {text.length} characters.
         </p>
         <p>
           <strong>{minTommss(0.008 * text.split(' ').length)}</strong> minutes
