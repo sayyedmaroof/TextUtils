@@ -72,34 +72,41 @@ const TextForm = props => {
               color: props.mode === 'dark' ? '#fff' : '#434343',
             }}
             onChange={onChangeHandler}
+            placeholder="Enter some text here..."
             value={text}></textarea>
         </div>
         <button
+          disabled={text.length === 0}
           className="btn btn-secondary text-light my-2 mx-2"
           onClick={upperCaseHandler}>
           Convert To Uppercase
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-secondary text-light my-2 mx-2"
           onClick={lowerCaseHandler}>
           Convert To LowerCase
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-secondary text-light my-2 mx-2"
           onClick={copyTextHandler}>
           Copy Text
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-secondary text-light my-2 mx-2"
           onClick={clearTextHandler}>
           Clear Text
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-secondary text-light my-2 mx-2"
           onClick={capitalizeHadler}>
           Capitalize Text
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-secondary text-light my-2 mx-2"
           onClick={extraSpacesHandler}>
           Remove Extra Spaces
@@ -120,7 +127,7 @@ const TextForm = props => {
           to read
         </p>
         <h2>Preview</h2>
-        <p>{text.length > 0 ? text : 'Enter someting to preview it here'}</p>
+        <p>{text.length > 0 ? text : 'Nothing to preview here!'}</p>
       </div>
     </>
   )
