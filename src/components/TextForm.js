@@ -12,18 +12,18 @@ const TextForm = props => {
   const upperCaseHandler = () => {
     let newText = text.toUpperCase()
     setText(newText)
-    props.showAlert('Converted to Uppercase', 'success')
+    props.showAlert('Converted to Uppercase!', 'success')
   }
 
   const lowerCaseHandler = () => {
     let newText = text.toLocaleLowerCase()
     setText(newText)
-    props.showAlert('Converted to Lowercase', 'success')
+    props.showAlert('Converted to Lowercase!', 'success')
   }
 
   const copyTextHandler = () => {
     navigator.clipboard.writeText(text)
-    props.showAlert('Text copied to clipboard', 'success')
+    props.showAlert('Text copied to clipboard!', 'success')
   }
 
   const clearTextHandler = () => {
@@ -40,14 +40,14 @@ const TextForm = props => {
       .join(' ')
 
     setText(newText)
-    props.showAlert('Text was capitalized', 'success')
+    props.showAlert('Text was capitalized!', 'success')
   }
 
   const extraSpacesHandler = () => {
     let newText = text.split(/[ ]+/).join(' ')
 
     setText(newText)
-    props.showAlert('Extra spaces successfully removed', 'success')
+    props.showAlert('Extra spaces removed!', 'success')
   }
 
   const onChangeHandler = e => {
