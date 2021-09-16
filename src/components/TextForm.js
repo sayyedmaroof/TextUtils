@@ -23,7 +23,7 @@ const TextForm = props => {
 
   const copyTextHandler = () => {
     navigator.clipboard.writeText(text)
-    props.showAlert('Text was successfully copied to clipboard', 'success')
+    props.showAlert('Text copied to clipboard', 'success')
   }
 
   const clearTextHandler = () => {
@@ -77,37 +77,37 @@ const TextForm = props => {
         </div>
         <button
           disabled={text.length === 0}
-          className="btn btn-secondary text-light my-2 mx-2"
+          className="btn btn-primary text-light my-2 mx-2"
           onClick={upperCaseHandler}>
           Convert To Uppercase
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-secondary text-light my-2 mx-2"
+          className="btn btn-primary text-light my-2 mx-2"
           onClick={lowerCaseHandler}>
           Convert To LowerCase
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-secondary text-light my-2 mx-2"
+          className="btn btn-primary text-light my-2 mx-2"
           onClick={copyTextHandler}>
           Copy Text
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-secondary text-light my-2 mx-2"
+          className="btn btn-primary text-light my-2 mx-2"
           onClick={clearTextHandler}>
           Clear Text
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-secondary text-light my-2 mx-2"
+          className="btn btn-primary text-light my-2 mx-2"
           onClick={capitalizeHadler}>
           Capitalize Text
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-secondary text-light my-2 mx-2"
+          className="btn btn-primary text-light my-2 mx-2"
           onClick={extraSpacesHandler}>
           Remove Extra Spaces
         </button>
