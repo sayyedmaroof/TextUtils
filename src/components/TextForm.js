@@ -119,11 +119,11 @@ const TextForm = props => {
         }}>
         <h2>Your text summary</h2>
         <p>
-          {text.split(' ').filter(element => element.length !== 0).length} words
-          and {text.length} characters.
+          {text.split(/\s+/).filter(element => element.length !== 0).length}{' '}
+          words and {text.length} characters.
         </p>
         <p>
-          <strong>{minTommss(0.008 * text.split(' ').length)}</strong> minutes
+          <strong>{minTommss(0.008 * text.split(/\s+/).length)}</strong> minutes
           to read
         </p>
         <h2>Preview</h2>
